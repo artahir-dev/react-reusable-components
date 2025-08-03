@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.grok-subscription-modal {
+  font-family: "Inter", sans-serif;
+  background-color: black;
+  color: white;
+  padding-top: 120px;
+  padding-bottom: 48px;
+  padding-inline: 20px;
+  border-radius: 24px;
+  width: 480px;
+  margin: 0px 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.grok-subscription-modal__image__container {
+  position: relative;
+}
+
+.grok-subscription-modal__image { /* parent tray for stacking = root(html) */
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 512px;
+  animation: grok-universe-animation 400s linear infinite; 
+}
+
+.grok-subscription-modal__content { /* parent tray for stacking = root(html) */
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  position: relative;
+}
+
+.grok-subscription-modal__content__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.grok-subscription-modal__content__header > h1 {
+  font-size: 55px;
+  background-image: linear-gradient(180deg, white, gray);
+  color: transparent;
+  background-clip: text;
+}
+
+.grok-subscription-modal__content__header > p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.grok-subscription-modal__content__body {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grok-subscription-modal__content__body > p {
+  font-weight: 600;
+}
+
+.grok-subscription-modal__content__body > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grok-subscription-modal__content__body > ul > li {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.grok-subscription-modal__content__body > ul > li::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M14.667 8C10.037 8 8 10.039 8 14.668c0-4.63-2.037-6.666-6.667-6.666C5.963 8 8 5.964 8 1.334c0 4.63 2.037 6.667 6.667 6.667Z" stroke="white" stroke-width="1.3"></path></svg>');
+  background-position: center;
+}
+
+.grok-subscription-modal__content__footer {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grok-subscription-modal__content__footer__select-plan {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.grok-subscription-modal__content__footer__select-plan > div {
+  background-color: rgb(38, 38, 38);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 30px;
+  border: 1px solid rgb(82, 82, 82);
+  position: relative;
+}
+
+.grok-subscription-modal__content__footer__select-plan > div > button {
+  padding: 12px 24px;
+  border: none;
+  font-family: "Inter", sans-serif;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* This <div> creates a stacking context (tray). The children (buttons and .grok-subscription-modal__content__footer__select-plan__selected) are part of this tray. */
+
+.grok-subscription-modal__content__footer__select-plan__selected {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding: 3px;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+.grok-subscription-modal__content__footer__select-plan__selected > div {
+  background-color: rgb(82, 82, 82);
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  border: 1px solid rgb(115, 115, 115);
+  box-sizing: border-box;
+}
+
+.grok-subscription-modal__content__footer__select-plan > p {
+  font-size: 13px;
+  color: rgb(249, 248, 246);
+  text-align: center;
+}
+
+.grok-subscription-modal__content__footer__signup-button {
+  background-color: rgba(255, 99, 8, 0.9);
+  font-family: "Inter", sans-serif;
+  border: none;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  color: rgb(249, 248, 246);
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: all 0.5s ease;
+  height: 45px;
+  width: 320px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.grok-subscription-modal__content__footer__signup-button:hover {
+  background-color: rgb(255, 99, 8);
+  font-size: 16.5px;
+  line-height: 24.75px;
+  box-shadow: inset 0 0 0 2px hsla(0, 0%, 100%, 0.15);
+}
+
+@keyframes grok-universe-animation {
+  0% {
+    transform: translate(-50%, -45px) rotate(0deg) scale(1.25);
+  }
+  100% {
+    transform: translate(-50%, -45px) rotate(360deg) scale(1.25);
+  }
+}
